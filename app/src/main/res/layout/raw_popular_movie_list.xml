@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="popularMovie"
+            type="com.devnick.tmdb.data.popular_movie.PopularMovies" />
+
+    </data>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="05dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    setImageUrl="@{popularMovie.backdrop_path}"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/movie_photo"
+                    android:contentDescription="Movie Image" />
+
+                <TextView
+                    android:layout_below="@+id/movie_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/movie_title"
+                    android:fontFamily="@font/allerta"
+                    android:text="@{popularMovie.title}"
+                    android:textColor="@color/secondaryColor"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                     />
+
+                <TextView
+                    android:layout_below="@+id/movie_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/movie_overview"
+                    android:layout_margin="5dp"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="@font/allerta"
+                    android:textSize="10sp"
+                    android:text="@{popularMovie.overview}" />
+
+                <TextView
+                    android:layout_below="@+id/movie_overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/movie_rating"
+                    android:textColor="@color/secondaryLightColor"
+                    android:textSize="15sp"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/allerta"
+                    android:text="@{`Rating: ` +Double.toString(popularMovie.vote_average)}" />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

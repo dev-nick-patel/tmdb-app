@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="adapter"
+            type="com.devnick.tmdb.ui.popular_movies.PopularMoviesAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.devnick.tmdb.ui.popular_movies.PopularMoviesViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            setAdapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/recyclerView" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:scaleY="4"
+            android:visibility="@{viewModel.isConnected() ? View.VISIBLE : View.GONE}"
+            android:indeterminateTint="@color/primaryColor"
+            android:indeterminateBehavior="repeat"
+            android:indeterminate="true" />
+        <TextView
+            android:id="@+id/no_internet_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{!viewModel.isConnected() ? @string/no_internet : null}"
+            android:background="@color/primaryColor"
+            android:textColor="@color/secondaryLightColor"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:visibility="@{viewModel.isConnected() ? View.GONE : View.VISIBLE}"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/allerta"/>
+    </RelativeLayout>
+</layout>
