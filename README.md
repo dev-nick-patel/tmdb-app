@@ -8,7 +8,7 @@ It is an Android Application which is developed using
 * Rxjava
 * Kotlin Coroutines
 * Navigation Components 
-* Material Design - RecyclerView, Cardview, Bottom Anvigation Tab
+* Material Design - RecyclerView, Cardview, Bottom Navigation Tab
 * Live Data and ViewModels
 * Unit Testing.
 
