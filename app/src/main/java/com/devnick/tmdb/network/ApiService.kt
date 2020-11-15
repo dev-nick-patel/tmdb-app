@@ -1,5 +1,6 @@
 package com.devnick.tmdb.network
 
+import com.devnick.tmdb.BuildConfig
 import com.devnick.tmdb.data.popular_movie.PopularMoviesResults
 import com.devnick.tmdb.data.trending.TrendingResults
 import retrofit2.http.GET
@@ -11,9 +12,9 @@ interface ApiService {
 //    fun getPopularMoviesList(@Query("api_key") key: String): Call<PopularMovieResults>
 
     @GET("/3/movie/popular")
-    suspend fun getPopularMoviesList(@Query("api_key") key: String): PopularMoviesResults
+    suspend fun getPopularMoviesList(@Query("api_key") key: String = BuildConfig.API_KEY): PopularMoviesResults
 
     @GET("/3/trending/all/day")
-    suspend fun getTrendingList(@Query("api_key") key: String): TrendingResults
+    suspend fun getTrendingList(@Query("api_key") key: String = BuildConfig.API_KEY): TrendingResults
 
 }

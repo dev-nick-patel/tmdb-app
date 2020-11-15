@@ -11,7 +11,7 @@ class MyApplication: Application() {
         super.onCreate()
         InternetUtil.init(this)
     }
-    companion object {
-        const val API_KEY: String = "b4345ee566f8c05e759c6eb34e58f75b"
-    }
+//    companion object {
+//        const val API_KEY: String = "b4345ee566f8c05e759c6eb34e58f75b"
+//    }
 }
