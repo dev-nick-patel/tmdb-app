@@ -31,6 +31,7 @@ class PopularMoviesFragment : Fragment() {
     ): View? {
         viewDataBinding = FragmentPopularMoviesBinding.inflate(inflater, container, false)
         return viewDataBinding.root
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
